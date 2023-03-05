@@ -1,11 +1,17 @@
-import React from "react";
-import categoriesArray from "./categories.json";
-import Directory from "./components/directory/directory.component";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navigation from './routes/navigation/navigation.component';
+import Home from './routes/home/home.component';
 
-const App = () => {
-  const categories = categoriesArray;
+const Shop = () => <h1>This is a Shop</h1>;
 
-  return <Directory categories={categories} />;
-};
+const App = () => (
+  <Routes>
+    <Route path='/' element={<Navigation />}>
+      <Route index element={<Home />} />
+      <Route path='shop' element={<Shop />} />
+    </Route>
+  </Routes>
+);
 
 export default App;
